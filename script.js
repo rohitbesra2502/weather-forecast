@@ -58,7 +58,7 @@ function GetInfo(){
         for(i=0;i<7;i++){
             document.getElementById("img"+(i+1)).src = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
         }
-        console.log(data)
+        // console.log(data)
     })
     // .catch(err => alert("Something went wrong"))
 }
