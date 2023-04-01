@@ -46,22 +46,21 @@ searchBtn.addEventListener("click", ()=>{
 function GetInfo(){
     const newName = document.getElementById("cityInput");
 
-fetch('http://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=32ba0bfed592484379e51106cef3f204')
-.then(response => response.json())
-.then(data => {
-    for(i=0;i<7;i++){
-        document.getElementById("day"+(i+1)+"Min").innerHTML = "Min:" +Number(data.list[i].main.temp_min-273.15).toFixed(1)+"°";
-    }
-    for(i=0;i<7;i++){
-        document.getElementById("day"+(i+1)+"Max").innerHTML = "Max:" +Number(data.list[i].main.temp_max-273.15).toFixed(1)+"°";
-    }
-    for(i=0;i<7;i++){
-        document.getElementById("img"+(i+1)).src = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
-    }
-    console.log(data)
-})
-
-    .catch(err => alert("Something went wrong"))
+    fetch('http://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=32ba0bfed592484379e51106cef3f204')
+    .then(response => response.json())
+    .then(data => {
+        for(i=0;i<7;i++){
+            document.getElementById("day"+(i+1)+"Min").innerHTML = "Min:" +Number(data.list[i].main.temp_min-273.15).toFixed(1)+"°";
+        }
+        for(i=0;i<7;i++){
+            document.getElementById("day"+(i+1)+"Max").innerHTML = "Max:" +Number(data.list[i].main.temp_max-273.15).toFixed(1)+"°";
+        }
+        for(i=0;i<7;i++){
+            document.getElementById("img"+(i+1)).src = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
+        }
+        console.log(data)
+    })
+    // .catch(err => alert("Something went wrong"))
 }
 
 // function DefaultScreen(){
