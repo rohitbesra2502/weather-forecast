@@ -61,7 +61,7 @@ fetch('http://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid
     console.log(data)
 })
 
-.catch(err => alert("Something went wrong"))
+    // .catch(err => alert("Something went wrong"))
 }
 
 // function DefaultScreen(){
