@@ -32,49 +32,46 @@ async function checkWeather(city){
             weatherIcon.src = "images/mist.png";
             bgImage.src="images/bg-img/mist.jpg";
         }
-        document.querySelector(".weather-details").style.display = "block";
-        document.querySelector(".error").style.display = "none";
+        // document.querySelector(".weather-details").style.display = "block";
+        // document.querySelector(".error").style.display = "none";
+        
     }
 }
                 
 searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
-    GetInfo();
+    GetInfo(searchBox.value);
 })
 
 // -------------------for 7 day --
-function GetInfo(){
-    const newName = document.getElementById("cityInput");
-
-    fetch('http://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=32ba0bfed592484379e51106cef3f204')
+function GetInfo(city){
+    // var newName = document.getElementById("cityInput");
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=17d2e136f075be6bd1018a8d5c3a16e7')
     .then(response => response.json())
     .then(data => {
-        for(i=0;i<7;i++){
+        for(i = 0; i < 7; i++){
             document.getElementById("day"+(i+1)+"Min").innerHTML = "Min:" +Number(data.list[i].main.temp_min-273.15).toFixed(1)+"°";
         }
-        for(i=0;i<7;i++){
+        for(i = 0; i < 7; i++){
             document.getElementById("day"+(i+1)+"Max").innerHTML = "Max:" +Number(data.list[i].main.temp_max-273.15).toFixed(1)+"°";
         }
-        for(i=0;i<7;i++){
+        for(i = 0; i < 7; i++){
             document.getElementById("img"+(i+1)).src = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
         }
-        // console.log(data)
+        console.log(data)
     })
-    // .catch(err => alert("Something went wrong"))
+    .catch(err => alert("Something went wrong"))
+    
 }
 
-// function DefaultScreen(){
-//     document.getElementById("cityInput").defaultValue = "London";
-//     GetInfo();
-// }
-const d = new Date();
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
+var d = new Date();
+var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
 
 function CheckDay(day){
     if(day +d.getDay() > 6){
-        return day +d.getDay()-7;
+        return day + d.getDay()-7;
     }else{
-        return day +d.getDay();
+        return day + d.getDay();
     }
 }
 for(i =0;i<7;i++){

@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/fav-icn.ico">
-    <title>weather forecast</title>
+    <title>Weather Forecast</title>
     <link rel="stylesheet" href="./styles.css">
 </head> 
 <body>
+    <nav class="nav">
+        <h1>Weather Forecast</h1>
+    </nav>
     <div class="weather-top-container">    
         <div class="wrapper">
             <div class="search">
@@ -26,14 +29,14 @@
                 <h1 class="temp">22<span>&#8451</span></h1>
                 <h2 class="city">Raipur</h2>
                 <div class="details">
-                    <div class="col">
+                    <div class="col col-1">
                         <img src="images/humidity.png" alt="">
                         <div>
                             <p class="humidity">50%</p>
                             <p>Humidity</p>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col col-2">
                         <img src="images/wind.png" alt="">
                         <div>
                             <p class="wind">50 km/h</p>
@@ -44,8 +47,7 @@
             </div>
         </div>
         <div class="bg-img">
-            <!-- animation weather -->
-            <img src="./images/bg-img/clear.jpg" alt="" class="weather-img">
+            <!-- bg-weather -->
         </div>
     </div>
     <div id="weatherContainer">
